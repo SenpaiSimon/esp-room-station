@@ -2,5 +2,8 @@
     "idf.adapterTargetName": "esp32",
     "cmake.automaticReconfigure": false,
     "cmake.configureOnEdit": false,
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "idf.flashType": "UART",
+    "idf.port": "/dev/ttyUSB0"
+
 }
