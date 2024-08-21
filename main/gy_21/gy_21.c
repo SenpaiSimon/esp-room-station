@@ -23,7 +23,7 @@ void gy21_init() {
     ESP_ERROR_CHECK(i2c_new_master_bus(&i2c_bus_config, &i2c_bus_handle));
 }
 
-uint16_t gy21_read(int regToRead) {
+uint16_t gy21_read(int regToRead, int delay) {
     uint8_t buffer[10] = {0};
     uint8_t reg = regToRead;
 
@@ -39,7 +39,7 @@ uint16_t gy21_read(int regToRead) {
         ESP_LOGE(GY_TAG, "write failed %x", ret);
     }
 
-    vTaskDelay(GY_21_WAIT_14_BIT / portTICK_PERIOD_MS); // wait till data is there
+    vTaskDelay(delay / portTICK_PERIOD_MS); // wait till data is there
     
     ret = i2c_master_receive(dev_handle, buffer, 3, 100/portTICK_PERIOD_MS);
     if(ret != ESP_OK) {
@@ -56,13 +56,13 @@ uint16_t gy21_read(int regToRead) {
 }
 
 float gy21_readTemp() {
-    uint16_t res = gy21_read(GY_21_TEMP_REG);
+    uint16_t res = gy21_read(GY_21_TEMP_REG, GY_21_WAIT_TEMP_14_BIT);
     float temp = (0.002681274 * (float)res) - 46.85;
     return temp;
 }
 
 float gy21_readHumid() {
-    uint16_t res = gy21_read(GY_21_HUMID_REG);
+    uint16_t res = gy21_read(GY_21_HUMID_REG, GY_21_WAIT_HUMID_14_BIT);
     float temp = (0.001918334 * (float)res) - 6;
 
     // clip top and bottom
@@ -81,6 +81,13 @@ float gy21_readCompensatedHumid() {
     
     if(temperature > 0 && temperature < 80) {
         humid = humid + (25.0 - temperature) * GY_21_TEMP_COEFF;
+    }
+
+    // clip
+    if(humid < 0) {
+        humid = 0;
+    } else if(humid > 100) {
+        humid = 100;
     }
 
     return humid;

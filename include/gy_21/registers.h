@@ -1,9 +1,14 @@
 #pragma once
 
-#define GY_21_WAIT_14_BIT 55
-#define GY_21_WAIT_13_BIT 30
-#define GY_21_WAIT_12_BIT 18
-#define GY_21_WAIT_11_BIT 13
+#define GY_21_WAIT_TEMP_14_BIT 55
+#define GY_21_WAIT_TEMP_13_BIT 30
+#define GY_21_WAIT_TEMP_12_BIT 18
+#define GY_21_WAIT_TEMP_11_BIT 13
+
+#define GY_21_WAIT_HUMID_14_BIT 21
+#define GY_21_WAIT_HUMID_13_BIT 13
+#define GY_21_WAIT_HUMID_12_BIT 10
+#define GY_21_WAIT_HUMID_11_BIT 8
 
 #define GY_21_ADDR    0x40
 

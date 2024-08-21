@@ -10,7 +10,7 @@
 #include <freertos/task.h>
 
 void gy21_init();
-uint16_t gy21_read(int regToRead);
+uint16_t gy21_read(int regToRead, int delay);
 float gy21_readTemp();
 float gy21_readHumid();
 float gy21_readCompensatedHumid();
