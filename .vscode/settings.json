@@ -6,7 +6,8 @@
     "idf.flashType": "UART",
     "idf.port": "/dev/ttyUSB0",
     "files.associations": {
-        "i2c.h": "c"
+        "i2c.h": "c",
+        "mdns.h": "c"
     }
 
 }

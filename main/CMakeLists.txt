@@ -1,4 +1,5 @@
 set(SOURCES
+    webserver/webserver.c
     gy_21/gy_21.c
     main.c
 )
