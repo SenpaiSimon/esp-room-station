@@ -7,7 +7,3 @@
 ## VSCode
 
 [click](https://github.com/espressif/vscode-esp-idf-extension/blob/master/docs/C_CPP_CONFIGURATION.md)
-
-## Deps
-
-idf.py add-dependency espressif/mdns

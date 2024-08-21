@@ -114,9 +114,10 @@ esp_err_t get_handler(httpd_req_t *req) {
     httpd_resp_set_type(req, "application/json");
     gy_meassurements_t mess = gy21_readAll();
     cJSON *root = cJSON_CreateObject();
-    cJSON_AddNumberToObject(root, "temp", mess.temperature);
-    cJSON_AddNumberToObject(root, "humid", mess.humidity);
-    cJSON_AddNumberToObject(root, "compHumid", mess.compHumidity);
+    // only two digits after comma
+    cJSON_AddNumberToObject(root, "temp", ((double)((int)(mess.temperature * 100)))/100);
+    cJSON_AddNumberToObject(root, "humid", ((double)((int)(mess.humidity * 100)))/100);
+    cJSON_AddNumberToObject(root, "compHumid", ((double)((int)(mess.compHumidity * 100)))/100);
     
     const char *data = cJSON_Print(root);
     httpd_resp_sendstr(req, data);
