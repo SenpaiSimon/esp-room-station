@@ -2,6 +2,7 @@
 
 #include "gy_21/gy_21.h"
 #include "webserver/creds.h"
+#include "config.h"
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"

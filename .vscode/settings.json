@@ -7,7 +7,8 @@
     "idf.port": "/dev/ttyUSB0",
     "files.associations": {
         "i2c.h": "c",
-        "mdns.h": "c"
+        "mdns.h": "c",
+        "config.h": "c"
     }
 
 }
