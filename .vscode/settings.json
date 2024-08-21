@@ -4,6 +4,9 @@
     "cmake.configureOnEdit": false,
     "cmake.configureOnOpen": false,
     "idf.flashType": "UART",
-    "idf.port": "/dev/ttyUSB0"
+    "idf.port": "/dev/ttyUSB0",
+    "files.associations": {
+        "i2c.h": "c"
+    }
 
 }

@@ -385,13 +385,6 @@ CONFIG_PARTITION_TABLE_MD5=y
 # end of Partition Table
 
 #
-# Example Configuration
-#
-CONFIG_EXAMPLE_SCAN_LIST_SIZE=10
-# CONFIG_EXAMPLE_USE_SCAN_CHANNEL_BITMAP is not set
-# end of Example Configuration
-
-#
 # Compiler options
 #
 CONFIG_COMPILER_OPTIMIZATION_DEBUG=y
