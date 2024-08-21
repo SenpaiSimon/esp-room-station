@@ -32,4 +32,5 @@
 *.app
 
 build
-creds.h
+
+include/webserver/creds.h
