@@ -109,10 +109,16 @@ void wifiConnect() {
     vEventGroupDelete(s_wifi_event_group);
 }
 
+bool lock = false;
 /* Our URI handler function to be called during GET /uri request */
 esp_err_t get_handler(httpd_req_t *req) {
     httpd_resp_set_type(req, "application/json");
+    
+    while(lock);
+    lock = true;
     gy_meassurements_t mess = gy21_readAll();
+    lock = false;
+
     cJSON *root = cJSON_CreateObject();
     // only two digits after comma
     cJSON_AddNumberToObject(root, "temp", ((double)((int)(mess.temperature * 100)))/100);
