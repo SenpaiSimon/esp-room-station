@@ -6,9 +6,7 @@
     "idf.flashType": "UART",
     "idf.port": "/dev/ttyUSB0",
     "files.associations": {
-        "i2c.h": "c",
-        "mdns.h": "c",
-        "config.h": "c"
+        "*.yaml": "home-assistant"
     },
     "idf.espIdfPath": "/home/simon/esp/esp-idf",
     "idf.pythonBinPath": "/home/simon/.espressif/python_env/idf5.4_py3.10_env/bin/python",
